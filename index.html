@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>7 days to survive</title>
+    <link rel="shortcut icon" href="./img/playerIdle1.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="main_menu">
+        <div class="conrainer">
+            <h2>7 days to survive</h2>
+            <div class="bts_conteiner">
+                <a class="btn start">Start</a>
+                <a class="btn settings">Settings</a>
+                <a class="btn rules">Rules</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pause_menu">
+        <div class="conrainer">
+            <h2>Pause</h2>
+            <div class="bts_conteiner">
+                <a class="btn pause">Continue</a>
+                <a class="btn settings_in_game">Settings</a>
+                <a class="btn rules">Rules</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings_menu">
+        <div class="conrainer">
+            <h2>Settings</h2>
+            <div class="bts_conteiner">
+                <a class="btn mute"><i>Sound</i><i class="sound">OFF</i>
+                </a>
+                <a class="btn back_to_main">Back</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings_after_game_menu">
+        <div class="conrainer">
+            <h2>Settings</h2>
+            <div class="bts_conteiner">
+                <a class="btn mute"><i>Sound</i><i class="sound">OFF</i>
+                </a>
+                <a class="btn back_to_game">Back</a>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="canvas" width="1536" height="864" style="image-rendering: pixelated;display: none;"></canvas>
+    <div class="decor_div"></div>
+    <script src="./js/main.js" type="module"></script>
+    <script src="./js/btns.js" type="module"></script>
+</body>
+
+
+
+</html>
