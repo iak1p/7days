@@ -12,6 +12,31 @@
   transition: opacity 1s ease;
   z-index: -1111;
 }
+.rules_menu {
+  width: 1536px;
+  height: 864px;
+  display: none;
+  background-image: url(../img/bac.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.gameover {
+  width: 1536px;
+  height: 864px;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  transition: opacity 1s ease;
+  z-index: -1111;
+}
+
+.gameover.active {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1111;
+}
 
 .decor_div.active {
   opacity: 1;
@@ -23,6 +48,12 @@
 html,
 body {
   background-color: black;
+}
+
+.rules {
+  color: #f44336;
+  font-family: sans-serif;
+  font-size: 18px;
 }
 
 .conrainer {

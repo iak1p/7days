@@ -1,19 +1,31 @@
 const ctx = document.getElementById("canvas").getContext("2d");
 
 export class GameObject {
-  constructor({ position, speed, sprite, helth }) {
+  constructor({ position, speed, sprite, health, width, height }) {
     this.position = position;
     this.speed = speed;
     this.sprite = sprite;
-    this.helth = helth;
+    this.health = health;
+    this.width = width;
+    this.height = height;
   }
 }
 
 export class Player extends GameObject {
-  constructor({ position, speed, sprite, control, helth, walls }) {
-    super({ position, speed, sprite, helth });
+  constructor({
+    position,
+    speed,
+    sprite,
+    control,
+    health,
+    walls,
+    width,
+    height,
+  }) {
+    super({ position, speed, sprite, health, width, height });
     this.control = control;
     this.walls = walls;
+    this.img = new Image();
   }
 
   checkColissionHor(wall) {
@@ -35,6 +47,7 @@ export class Player extends GameObject {
   }
 
   move() {
+    this.img.src = this.sprite;
     if (this.control.down)
       for (let i = 0; i < 2; i++) {
         if (this.checkColissionHor(this.walls[i])) {
@@ -69,13 +82,19 @@ export class Player extends GameObject {
           this.position.x += this.speed / 2;
         }
       }
-    ctx.drawImage(this.sprite, this.position.x, this.position.y, 40, 68);
+    ctx.drawImage(
+      this.img,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
   }
 }
 
 export class Enemy extends GameObject {
-  constructor({ position, speed, sprite, radius, helth }) {
-    super({ position, speed, sprite, helth });
+  constructor({ position, speed, sprite, radius, health, width, height }) {
+    super({ position, speed, sprite, health, width, height });
     this.radius = radius;
     this.vector = {
       x: 0,
@@ -85,10 +104,18 @@ export class Enemy extends GameObject {
       x: Math.floor(Math.random() * 1024),
       y: Math.floor(Math.random() * 524),
     };
+    this.img = new Image();
   }
 
   draw() {
-    ctx.drawImage(this.sprite, this.position.x, this.position.y, 40, 66);
+    this.img.src = this.sprite;
+    ctx.drawImage(
+      this.img,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
   }
 
   update() {
@@ -117,15 +144,9 @@ export class Enemy extends GameObject {
 }
 
 export class Bullet extends GameObject {
-  constructor({ position, speed, sprite, cursorPos, enemies, bullets }) {
-    super({ position, sprite, speed });
+  constructor({ position, speed, cursorPos }) {
+    super({ position, speed });
     this.cursorPos = cursorPos;
-    this.enemies = enemies;
-    this.bullets = bullets;
-    this.vector = {
-      x: 0,
-      y: 0,
-    };
     this.angle = Math.atan2(
       this.cursorPos.y - this.position.y,
       this.cursorPos.x - this.position.x
@@ -133,7 +154,7 @@ export class Bullet extends GameObject {
   }
 
   draw() {
-    ctx.drawImage(this.sprite, this.position.x, this.position.y);
+    ctx.fillRect(this.position.x, this.position.y, 4, 4);
   }
 
   update() {
@@ -143,21 +164,38 @@ export class Bullet extends GameObject {
     this.draw();
   }
 
-  checkColission(bullet) {
-    this.enemies.forEach((enemy) => {
+  checkColission({ bullet, wallsPodval, enemies, bullets }) {
+    wallsPodval.forEach((wall) => {
       if (
-        this.position.x + 4 > enemy.position.x &&
-        enemy.position.x + 38 > this.position.x &&
-        this.position.y + 4 > enemy.position.y &&
-        enemy.position.y + 68 > this.position.y
+        bullet.position.x < wall.x + wall.width &&
+        bullet.position.x + 4 > wall.x &&
+        bullet.position.y < wall.y + wall.height &&
+        bullet.position.y + 4 > wall.y
       ) {
-        const piy = new Audio("../audio/shoot2.mp3");
-        piy.volume = 0.5;
-        piy.play();
-        enemy.helth -= 10;
-        const index = this.enemies.indexOf(enemy);
+        const index = bullets.indexOf(bullet);
         if (index > -1) {
-          this.enemies.splice(index, 1);
+          bullets.splice(index, 1);
+        }
+      }
+    });
+
+    enemies.forEach((enemy) => {
+      if (
+        bullet.position.x < enemy.position.x + enemy.width &&
+        bullet.position.x + 4 > enemy.position.x &&
+        bullet.position.y < enemy.position.y + enemy.height &&
+        bullet.position.y + 4 > enemy.position.y
+      ) {
+        enemy.health -= 10;
+        const indexB = bullets.indexOf(bullet);
+        if (indexB > -1) {
+          bullets.splice(indexB, 1);
+        }
+        if (enemy.health <= 0) {
+          const index = enemies.indexOf(enemy);
+          if (index > -1) {
+            enemies.splice(index, 1);
+          }
         }
       }
     });
