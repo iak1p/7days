@@ -166,13 +166,10 @@ export const gameControl = (e, GAME_VAR, PLAYER) => {
         GAME_VAR.inHome
       ) {
         decorDiv.classList.add("active");
-        GAME_VAR.difficulty === "hard"
-          ? (PLAYER.health = PLAYER.health)
-          : GAME_VAR.difficulty === "medium" && GAME_VAR.levelNum !== 1
-          ? (PLAYER.health = 25 + PLAYER.health)
-          : (PLAYER.health = 50);
+        if (GAME_VAR.difficulty === "hard") PLAYER.health = PLAYER.health;
+        else if (GAME_VAR.difficulty === "medium") PLAYER.health += 25;
+        else PLAYER.health = 50;
         if (PLAYER.health > 50) PLAYER.health = 50;
-
         setTimeout(() => {
           GAME_VAR.playerSleep = true;
           decorDiv.classList.remove("active");

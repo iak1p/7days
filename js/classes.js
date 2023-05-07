@@ -111,6 +111,25 @@ export class GameObject {
   }
 }
 
+/**
+
+A class representing a player object in a game.
+@extends GameObject
+/
+export class Player extends GameObject {
+/*
+Create a new player object.
+@param {Object} options - The options for the player object.
+@param {Object} options.position - The position of the player.
+@param {number} options.speed - The speed of the player.
+@param {string} options.sprite - The path to the sprite image for the player.
+@param {Object} options.control - The controls for the player.
+@param {Object[]} options.walls - An array of objects representing the walls in the game.
+@param {number} options.width - The width of the player.
+@param {number} options.height - The height of the player.
+@param {number} options.health - The health of the player.
+*/
+
 export class Player extends GameObject {
   constructor({ position, speed, sprite, control, health, walls, width, height }) {
     super({ position, speed, sprite, health, width, height });

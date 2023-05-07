@@ -12,7 +12,7 @@ const createBullet = (e, GAME_VAR, PLAYER) => {
       y: e.clientY,
     },
     playerBullet: true,
-    damage: GAME_VAR.levelNum * 2,
+    damage: GAME_VAR.cheat ? 8000 : GAME_VAR.levelNum * 2,
   });
 };
 
@@ -32,7 +32,7 @@ export const playerShoot = (e, GAME_VAR, PLAYER) => {
         bullet = createBullet(e, GAME_VAR, PLAYER);
         GAME_VAR.bullets.push(bullet);
       }, 100);
-    } 
+    }
     GAME_VAR.bullets.push(bullet);
   }
 };
