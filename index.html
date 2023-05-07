@@ -22,6 +22,21 @@
         </div>
     </div>
 
+    <div class="difficulty_choice">
+        <div class="conrainer">
+            <h2>7 days to survive</h2>
+            <div class="bts_conteiner">
+                <a class="btn start_after_choice">Start</a>
+                <select>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <a class="btn back_to_main">Back</a>
+            </div>
+        </div>
+    </div>
+
     <div class="pause_menu">
         <div class="conrainer">
             <h2>Pause</h2>
@@ -41,16 +56,27 @@
         </div>
     </div>
 
+    <div class="win">
+        <div class="conrainer">
+            <h2>You win</h2>
+            <div class="bts_conteiner">
+                <a class="btn restart_game">Restart game</a>
+            </div>
+        </div>
+    </div>
+
     <div class="rules_menu">
         <div class="conrainer">
             <h2>Rules</h2>
             <div class="bts_conteiner">
                 <p class="rules">You need to live for seven days. Every day you will meet new monsters, which will get
                     stronger every day</p>
-                <p class="rules">W - go Up</p>
-                <p class="rules">A - go Left</p>
-                <p class="rules">S - go Down</p>
-                <p class="rules">D - go Right</p>
+                <p class="rules">You can also choose between several levels of difficulty:</p>
+                <p class="rules">Easy-the easiest level, there will be no complications</p>
+                <p class="rules">Medium-After each day, you will only get half your health back</p>
+                <p class="rules">Hard-is the most false level, after every day health will not be restored</p>
+                <p class="rules">All images from: <a
+                        href="https://craftpix.net/freebies/free-3-cyberpunk-characters-pixel-art/">Images</a></p>
                 <a class="btn back_to_main">Back</a>
             </div>
         </div>
@@ -80,8 +106,9 @@
 
     <canvas id="canvas" width="1536" height="864" style="image-rendering: pixelated;display: none;"></canvas>
     <div class="decor_div"></div>
-    <script src="./js/main.js" type="module"></script>
     <script src="./js/btns.js" type="module"></script>
+    <script src="./js/renderLevel.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
 </body>
 
 
