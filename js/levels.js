@@ -1,3 +1,45 @@
+/**
+ * Object that defines the enemy count and type for level 1.
+ * @typedef {Object} Level1
+ * @property {Array.<{count: number, enemyType: number}>} day - Array of objects representing the enemy count and type for each day of the level.
+ */
+
+/**
+ * Object that defines the enemy count and type for level 2.
+ * @typedef {Object} Level2
+ * @property {Array.<{count: number, enemyType: number}>} day - Array of objects representing the enemy count and type for each day of the level.
+ */
+
+/**
+ * Object that defines the enemy count and type for level 3.
+ * @typedef {Object} Level3
+ * @property {Array.<{count: number, enemyType: number}>} day - Array of objects representing the enemy count and type for each day of the level.
+ */
+
+/**
+ * Object that defines the enemy count and type for level 4.
+ * @typedef {Object} Level4
+ * @property {Array.<{count: number, enemyType: number}>} day - Array of objects representing the enemy count and type for each day of the level.
+ */
+
+/**
+ * Object that defines the enemy count and type for level 5.
+ * @typedef {Object} Level5
+ * @property {Array.<{count: number, enemyType: number}>} day - Array of objects representing the enemy count and type for each day of the level.
+ */
+
+/**
+ * Object that defines the enemy count and type for level 6.
+ * @typedef {Object} Level6
+ * @property {Array.<{count: number, enemyType: number}>} day - Array of objects representing the enemy count and type for each day of the level.
+ */
+
+/**
+ * Object that defines the enemy count and type for level 7.
+ * @typedef {Object} Level7
+ * @property {Array.<{count: number, enemyType: number}>} day - Array of objects representing the enemy count and type for each day of the level.
+ */
+
 export const level_1 = {
   day: [
     {

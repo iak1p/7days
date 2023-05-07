@@ -121,15 +121,15 @@ export class Player extends GameObject {
   }
 
   checkColissionHor(wall) {
-    if (this.position.y + 68 > wall.y && this.position.y < wall.y + wall.height) {
+    if (this.position.y + 68 > wall.y && this.position.y < wall.y + wall.height)
       return true;
-    } else return false;
+    else return false;
   }
 
   checkColissionVer(wall) {
-    if (this.position.x + 40 > wall.x && this.position.x < wall.x + wall.width) {
+    if (this.position.x + 40 > wall.x && this.position.x < wall.x + wall.width)
       return true;
-    } else return false;
+    else return false;
   }
 
   draw() {
@@ -142,7 +142,7 @@ export class Player extends GameObject {
     this.img.src = this.sprite;
     if (this.control.down)
       for (let i = 0; i < 2; i++) {
-        if (this.checkColissionHor(this.walls[i])) {
+        if (this.checkColissionHor(this.walls[0])) {
           this.position.y += this.speed / 2;
         } else {
           this.position.y -= this.speed / 2;
@@ -150,7 +150,7 @@ export class Player extends GameObject {
       }
     if (this.control.up) {
       for (let i = 0; i < 2; i++) {
-        if (this.checkColissionHor(this.walls[i])) {
+        if (this.checkColissionHor(this.walls[1])) {
           this.position.y -= this.speed / 2;
         } else {
           this.position.y += this.speed / 2;
@@ -160,7 +160,7 @@ export class Player extends GameObject {
     if (this.control.left) {
       this.left = true;
       for (let i = 2; i < 4; i++) {
-        if (this.checkColissionVer(this.walls[i])) {
+        if (this.checkColissionVer(this.walls[2])) {
           this.position.x += this.speed / 2;
         } else {
           this.position.x -= this.speed / 2;
@@ -170,7 +170,7 @@ export class Player extends GameObject {
     if (this.control.right) {
       this.left = false;
       for (let i = 2; i < 4; i++) {
-        if (this.checkColissionVer(this.walls[i])) {
+        if (this.checkColissionVer(this.walls[3])) {
           this.position.x -= this.speed / 2;
         } else {
           this.position.x += this.speed / 2;

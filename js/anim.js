@@ -1,5 +1,14 @@
 import { OBSERVER } from "./classes.js";
 
+/**
+
+animPlayer - animates the player character's sprite based on the given control and animation values
+@param {object} player - the player object with sprite and position properties
+@param {object} control - the control object with left, right, up, and down boolean properties
+@param {number} anim - the current animation frame number (defaults to 0)
+@returns {undefined} - does not return a value
+*/
+
 export const animPlayer = (player, control, anim) => {
   let i = 0;
   let a = 0;
